@@ -1,0 +1,1748 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.2.0">
+    
+    
+      
+        <title>Clustering Data</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/application.750b69bd.css">
+      
+      
+    
+    
+      <script src="assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#introduction" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="." title="Clustering Data" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Clustering Data
+            </span>
+            <span class="md-header-nav__topic">
+              Home
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="." title="Clustering Data" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Clustering Data
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Home
+      </label>
+    
+    <a href="." title="Home" class="md-nav__link md-nav__link--active">
+      Home
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-installing" title="Step 1. Installing" class="md-nav__link">
+    Step 1. Installing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-crawling" title="Step 2. Crawling" class="md-nav__link">
+    Step 2. Crawling
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apa-itu-web-crawler" title="Apa itu Web Crawler ?" class="md-nav__link">
+    Apa itu Web Crawler ?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bagaimana-cara-kerja-web-crawler" title="Bagaimana cara kerja Web Crawler ?" class="md-nav__link">
+    Bagaimana cara kerja Web Crawler ?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apa-yang-akan-dilakukan" title="Apa yang akan dilakukan ?" class="md-nav__link">
+    Apa yang akan dilakukan ?
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-library-yang-digunakan" title="Install library yang digunakan" class="md-nav__link">
+    Install library yang digunakan
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#menentukan-halaman-web-yang-akan-di-crawl" title="Menentukan halaman web yang akan di crawl" class="md-nav__link">
+    Menentukan halaman web yang akan di crawl
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#menentukan-informasi-apa-yang-akan-di-simpan" title="Menentukan informasi apa yang akan di simpan" class="md-nav__link">
+    Menentukan informasi apa yang akan di simpan
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proses-crawling" title="Proses Crawling" class="md-nav__link">
+    Proses Crawling
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#menyimpan-data-dalam-bentuk-excel" title="Menyimpan data dalam bentuk excel" class="md-nav__link">
+    Menyimpan data dalam bentuk excel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cara-akses" title="Cara akses" class="md-nav__link">
+    Cara akses
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasil" title="Hasil" class="md-nav__link">
+    Hasil
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-preprocessing" title="Step 3. Preprocessing" class="md-nav__link">
+    Step 3. Preprocessing
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apa-itu-text-preprocessing" title="Apa itu Text Preprocessing ?" class="md-nav__link">
+    Apa itu Text Preprocessing ?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apa-yang-akan-dilakukan_1" title="Apa yang akan dilakukan ?" class="md-nav__link">
+    Apa yang akan dilakukan ?
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-library-yang-digunakan_1" title="Install library yang digunakan" class="md-nav__link">
+    Install library yang digunakan
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#symbol-removing" title="Symbol Removing" class="md-nav__link">
+    Symbol Removing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tokenizing" title="Tokenizing" class="md-nav__link">
+    Tokenizing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stopword" title="Stopword" class="md-nav__link">
+    Stopword
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stemming" title="Stemming" class="md-nav__link">
+    Stemming
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cara-akses_1" title="Cara akses" class="md-nav__link">
+    Cara akses
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-fiture-selection" title="Step 4. Fiture Selection" class="md-nav__link">
+    Step 4. Fiture Selection
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apa-itu-fiture-selection" title="Apa itu Fiture Selection ?" class="md-nav__link">
+    Apa itu Fiture Selection ?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mengapa-fiture-selection-penting" title="Mengapa Fiture Selection penting ?" class="md-nav__link">
+    Mengapa Fiture Selection penting ?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apa-itu-drop-high-correlation" title="Apa itu Drop High Correlation ?" class="md-nav__link">
+    Apa itu Drop High Correlation ?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apa-yang-akan-dilakukan_2" title="Apa yang akan dilakukan ?" class="md-nav__link">
+    Apa yang akan dilakukan ?
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-library-yang-digunakan_2" title="Install library yang digunakan" class="md-nav__link">
+    Install library yang digunakan
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proses-fiture-selection" title="Proses Fiture Selection" class="md-nav__link">
+    Proses Fiture Selection
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#full-code" title="Full Code" class="md-nav__link">
+    Full Code
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cara-akses_2" title="Cara akses" class="md-nav__link">
+    Cara akses
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasil_1" title="hasil" class="md-nav__link">
+    hasil
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-tf-idf" title="Step 5. TF-IDF" class="md-nav__link">
+    Step 5. TF-IDF
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apa-itu-tf-idf" title="Apa itu TF-IDF ?" class="md-nav__link">
+    Apa itu TF-IDF ?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apa-yang-akan-dilakukan_3" title="Apa yang akan dilakukan ?" class="md-nav__link">
+    Apa yang akan dilakukan ?
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-library-yang-digunakan_3" title="Install library yang digunakan" class="md-nav__link">
+    Install library yang digunakan
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tf" title="TF" class="md-nav__link">
+    TF
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#idf" title="IDF" class="md-nav__link">
+    IDF
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tf-idf" title="TF-IDF" class="md-nav__link">
+    TF-IDF
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cara-akses_3" title="Cara akses" class="md-nav__link">
+    Cara akses
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-clustering" title="Step 6. Clustering" class="md-nav__link">
+    Step 6. Clustering
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apa-itu-clustering" title="Apa itu Clustering ?" class="md-nav__link">
+    Apa itu Clustering ?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apa-itu-fuzzy-c-means" title="Apa itu Fuzzy C-Means ?" class="md-nav__link">
+    Apa itu Fuzzy C-Means ?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apa-itu-silhouette-coefficient" title="Apa itu Silhouette Coefficient ?" class="md-nav__link">
+    Apa itu Silhouette Coefficient ?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apa-yang-akan-dilakukan_4" title="Apa yang akan dilakukan ?" class="md-nav__link">
+    Apa yang akan dilakukan ?
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-library-yang-digunakan_4" title="Install library yang digunakan" class="md-nav__link">
+    Install library yang digunakan
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fuzzy-c-means" title="Fuzzy C-means" class="md-nav__link">
+    Fuzzy C-means
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#silhouette-coefficient" title="Silhouette Coefficient" class="md-nav__link">
+    Silhouette Coefficient
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#full-code_1" title="Full Code" class="md-nav__link">
+    Full Code
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cara-akses_4" title="Cara akses" class="md-nav__link">
+    Cara akses
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasil_2" title="Hasil" class="md-nav__link">
+    Hasil
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="about.md" title="About" class="md-nav__link">
+      About
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-installing" title="Step 1. Installing" class="md-nav__link">
+    Step 1. Installing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-crawling" title="Step 2. Crawling" class="md-nav__link">
+    Step 2. Crawling
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apa-itu-web-crawler" title="Apa itu Web Crawler ?" class="md-nav__link">
+    Apa itu Web Crawler ?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bagaimana-cara-kerja-web-crawler" title="Bagaimana cara kerja Web Crawler ?" class="md-nav__link">
+    Bagaimana cara kerja Web Crawler ?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apa-yang-akan-dilakukan" title="Apa yang akan dilakukan ?" class="md-nav__link">
+    Apa yang akan dilakukan ?
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-library-yang-digunakan" title="Install library yang digunakan" class="md-nav__link">
+    Install library yang digunakan
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#menentukan-halaman-web-yang-akan-di-crawl" title="Menentukan halaman web yang akan di crawl" class="md-nav__link">
+    Menentukan halaman web yang akan di crawl
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#menentukan-informasi-apa-yang-akan-di-simpan" title="Menentukan informasi apa yang akan di simpan" class="md-nav__link">
+    Menentukan informasi apa yang akan di simpan
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proses-crawling" title="Proses Crawling" class="md-nav__link">
+    Proses Crawling
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#menyimpan-data-dalam-bentuk-excel" title="Menyimpan data dalam bentuk excel" class="md-nav__link">
+    Menyimpan data dalam bentuk excel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cara-akses" title="Cara akses" class="md-nav__link">
+    Cara akses
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasil" title="Hasil" class="md-nav__link">
+    Hasil
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-preprocessing" title="Step 3. Preprocessing" class="md-nav__link">
+    Step 3. Preprocessing
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apa-itu-text-preprocessing" title="Apa itu Text Preprocessing ?" class="md-nav__link">
+    Apa itu Text Preprocessing ?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apa-yang-akan-dilakukan_1" title="Apa yang akan dilakukan ?" class="md-nav__link">
+    Apa yang akan dilakukan ?
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-library-yang-digunakan_1" title="Install library yang digunakan" class="md-nav__link">
+    Install library yang digunakan
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#symbol-removing" title="Symbol Removing" class="md-nav__link">
+    Symbol Removing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tokenizing" title="Tokenizing" class="md-nav__link">
+    Tokenizing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stopword" title="Stopword" class="md-nav__link">
+    Stopword
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stemming" title="Stemming" class="md-nav__link">
+    Stemming
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cara-akses_1" title="Cara akses" class="md-nav__link">
+    Cara akses
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-fiture-selection" title="Step 4. Fiture Selection" class="md-nav__link">
+    Step 4. Fiture Selection
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apa-itu-fiture-selection" title="Apa itu Fiture Selection ?" class="md-nav__link">
+    Apa itu Fiture Selection ?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mengapa-fiture-selection-penting" title="Mengapa Fiture Selection penting ?" class="md-nav__link">
+    Mengapa Fiture Selection penting ?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apa-itu-drop-high-correlation" title="Apa itu Drop High Correlation ?" class="md-nav__link">
+    Apa itu Drop High Correlation ?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apa-yang-akan-dilakukan_2" title="Apa yang akan dilakukan ?" class="md-nav__link">
+    Apa yang akan dilakukan ?
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-library-yang-digunakan_2" title="Install library yang digunakan" class="md-nav__link">
+    Install library yang digunakan
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proses-fiture-selection" title="Proses Fiture Selection" class="md-nav__link">
+    Proses Fiture Selection
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#full-code" title="Full Code" class="md-nav__link">
+    Full Code
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cara-akses_2" title="Cara akses" class="md-nav__link">
+    Cara akses
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasil_1" title="hasil" class="md-nav__link">
+    hasil
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-tf-idf" title="Step 5. TF-IDF" class="md-nav__link">
+    Step 5. TF-IDF
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apa-itu-tf-idf" title="Apa itu TF-IDF ?" class="md-nav__link">
+    Apa itu TF-IDF ?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apa-yang-akan-dilakukan_3" title="Apa yang akan dilakukan ?" class="md-nav__link">
+    Apa yang akan dilakukan ?
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-library-yang-digunakan_3" title="Install library yang digunakan" class="md-nav__link">
+    Install library yang digunakan
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tf" title="TF" class="md-nav__link">
+    TF
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#idf" title="IDF" class="md-nav__link">
+    IDF
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tf-idf" title="TF-IDF" class="md-nav__link">
+    TF-IDF
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cara-akses_3" title="Cara akses" class="md-nav__link">
+    Cara akses
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-clustering" title="Step 6. Clustering" class="md-nav__link">
+    Step 6. Clustering
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apa-itu-clustering" title="Apa itu Clustering ?" class="md-nav__link">
+    Apa itu Clustering ?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apa-itu-fuzzy-c-means" title="Apa itu Fuzzy C-Means ?" class="md-nav__link">
+    Apa itu Fuzzy C-Means ?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apa-itu-silhouette-coefficient" title="Apa itu Silhouette Coefficient ?" class="md-nav__link">
+    Apa itu Silhouette Coefficient ?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apa-yang-akan-dilakukan_4" title="Apa yang akan dilakukan ?" class="md-nav__link">
+    Apa yang akan dilakukan ?
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-library-yang-digunakan_4" title="Install library yang digunakan" class="md-nav__link">
+    Install library yang digunakan
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fuzzy-c-means" title="Fuzzy C-means" class="md-nav__link">
+    Fuzzy C-means
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#silhouette-coefficient" title="Silhouette Coefficient" class="md-nav__link">
+    Silhouette Coefficient
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#full-code_1" title="Full Code" class="md-nav__link">
+    Full Code
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cara-akses_4" title="Cara akses" class="md-nav__link">
+    Cara akses
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasil_2" title="Hasil" class="md-nav__link">
+    Hasil
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="introduction">Introduction</h1>
+<p>Menurut bahasa, data merupakan bentuk jamak dari kata <em>datum</em> (bahasa latin) yang berarti <em>sesuatu yang diberikan</em>. Menurut istilah, pengertian data adalah kumpulan informasi atau keterangan-keterangan yang diperoleh dari pengamatan, informasi itu bisa berupa angka, lambang atau sifat.</p>
+<p>Dalam kehidupan sehari-hari data berarti suatu pernyataan yang diterima secara apa adanya. Artinya data yang diperoleh dari berbagai sumbernya masih menjadi sebuah anggapan atau fakta karena memang belum diolah lebih lanjut. Setelah diolah melaui suatu penelitian atau percobaan maka data dapat berubah menjadi bentuk yang lebih kompleks misal database, informasi atau bahkan solusi pada masalah tertentu.</p>
+<p>Data yang telah diolah akan berubah menjadi sebuah informasi yang dapat digunakan untuk menambah pengetahuan bagi yang menerimanya. Maka dalam hal ini data dapat dianggap sebagai obyek dan informasi adalah suatu subyek yang bermanfaat bagi penerimanya. Informasi juga bisa disebut sebagai hasil pengolahan ataupun pemrosesan data.</p>
+<p>Oleh karena itu artikel ini akan membahas tutorial untuk mengolah data yang diperoleh dari <em>crawling web</em> sehingga diperoleh suatu informasi. Data yang didapat dari proses crawl akan diolah menggunakan metode <em>Fuzzy C-Means</em> untuk melakukan cluster pada data dan <em>Silhouette Coefficient</em> digunakan untuk menguji kualitas cluster yang diperoleh. Hasil akhir yang ingin dicapai pada artikel ini adalah membandingkan jumlah cluster sehingga mendapatkan jumlah cluster yang efiseien dan berkualitas berdasarkan perolehan skor dari <em>Silhouette Coefficient</em>. Selain itu pada tutorial ini juga terdapat proses <em>Feature Selection</em> untuk mengurangi jumlah fitur agar tidak memakan waktu komputasi yang banyak. Algoritma yang digunakan pada proses ini adalah <em>Drop High Correlation</em>, algortima ini digunakan untuk menghindari membuang fitur yang memiliki informasi yang diperlukan karena algoritma ini melakukan proses korelasi matrik untuk mengetahui fitur mana yang tidak memiliki korelasi dengan fitur yang lainnya. Sehingga algoritma ini dapat mencegah membuang fitur yang penting.</p>
+<h2 id="step-1-installing">Step 1. Installing</h2>
+<p><img alt="" src="C:\Users\Khusnul\Documents\nambang\1.1.JPG" /></p>
+<p>Dalam tutorial ini semua proses akan dibangun menggunakan bahasa pemograman <em>Python</em>. Alasan mengapa <em>author</em> menggunakan bahasa pemograman ini karena <em>Python</em> merupakan bahasa pemograman yang populer akhir-akhir ini, selain itu <em>Python</em> menyediakan banyak <em>library</em>yang mudah digunakan dalam membangun suatu sistem. Adapun <em>library</em> yang digunakan akan dijelaskan pada setiap stepnya.</p>
+<p>Panduan instalasi python dapat teman-teman baca<a href="https://realpython.com/installing-python/">disini</a></p>
+<p>Panduan instalasi library atau package dapat teman-teman <a href="https://datatofish.com/install-package-python-using-pip/">disini</a></p>
+<h2 id="step-2-crawling">Step 2. Crawling</h2>
+<h3 id="apa-itu-web-crawler">Apa itu <em>Web Crawler</em> ?</h3>
+<p><em>Web Crawler</em> merupakan suatu program atau <em>Script</em> otomatis yang relatif simpel, menggunakan sebuah metode tertentu untuk melakukan <em>scan</em> atau <em>crawl</em> pada halaman internet untuk mendapatkan indek dari data yang dicari. Nama lain dari <em>Web Crawler</em> adalah <em>Web Spider</em>, <em>Web Robot</em>, <em>Bot</em>, <em>Crawl</em> dan <em>Automatic Indexer</em>. Umumnya <em>Web Crawler</em> dapat digunakan berkaitan dengan <em>Search Engine</em>, yakni mengumpulkan informasi mengenai apa yang ada pada halaman-halaman web publik.</p>
+<h3 id="bagaimana-cara-kerja-web-crawler">Bagaimana cara kerja <em>Web Crawler</em> ?</h3>
+<p>Ketika <em>Web Crawler</em> suatu <em>Search Engine</em> mengunjungi halaman web, <em>Web Crawler</em> akan membaca teks , <em>hyperlink</em> dan macam-macam tag konten yang digunakan dalam situs misalnya meta tag yang berisi banyak keyword. Data tersebut kemudian akan dimasukkan ke dalam database atau tempat penyimpanan.</p>
+<h3 id="apa-yang-akan-dilakukan">Apa yang akan dilakukan ?</h3>
+<h4 id="install-library-yang-digunakan">Install library yang digunakan</h4>
+<pre><code class="python">from bs4 import BeautifulSoup
+import requests
+</code></pre>
+
+<p><code>BeautifulSoup</code>digunakan untuk dapat mengakses data html dan xml, sedangkan requests digunakan untuk dapat mengakses halaman web.</p>
+<h4 id="menentukan-halaman-web-yang-akan-di-crawl">Menentukan halaman web yang akan di <em>crawl</em></h4>
+<p>Pada artikel ini halaman web yang akan di crawl datanya adalah </p>
+<p>http://indeks.kompas.com/news/2017-08-04/. Halaman web ini memuat artikel atau berita </p>
+<p><a href="https://www.kompas.com/">https://www.kompas.com/</a> .</p>
+<h4 id="menentukan-informasi-apa-yang-akan-di-simpan">Menentukan informasi apa yang akan di simpan</h4>
+<p>Setelah menentukan halaman web yang akan di crawl, selanjutnya berdasarkan informasi yang ada di halaman web diatas, data artikel atau berita yang akan di simpan pada tutorial ini berupa <code>URL, judul dan isi berita</code>.</p>
+<h4 id="proses-crawling">Proses Crawling</h4>
+<pre><code>&gt;&gt; Membuat requests pada halaman web yang dituju
+</code></pre>
+
+<p><code>req = requests.get('http://indeks.kompas.com/news/2017-08-04/')</code></p>
+<pre><code>&gt;&gt; Menentukan berita yang akan diambil dari halaman web
+</code></pre>
+
+<p><img alt="" src="C:\Users\Khusnul\Documents\nambang\2.2.jpg" /></p>
+<p>Berita yang akan kita ambil adalah yang terletak di panel sebelah kiri, berita ini merupakan berita yang diupload pada tahun 2019. Sedangkan berita pada panel kanan merupakan <em>headline</em> setiap minggunya.</p>
+<p><img alt="" src="C:\Users\Khusnul\Documents\nambang\3.3.JPG" /></p>
+<p>Untuk dapat mengakses tag html dari list berita tersebut, dapat dilakukan dengan <em>inspect element</em>, yakni dengan cara :</p>
+<ol>
+<li>
+<p>klik kanan pada halaman web</p>
+</li>
+<li>
+<p>pilih <em>inspect</em></p>
+</li>
+<li>
+<p>maka akan muncul panel <em>inspect</em> di jendela sebelah kanan</p>
+</li>
+</ol>
+<p><img alt="" src="C:\Users\Khusnul\Documents\nambang\3.3.0.jpg" /></p>
+<p>Selanjutnya pada panel <em>inspect</em>, cari tag html yang memuat list berita pada halaman web. Biasanya list berita memiliki nama <em>class</em> yang sama pada setiap berita. Pada halaman web diatas contohnya adalah <em>class</em> <code>item-outer</code>.</p>
+<pre><code> news_links = soup.find_all(&quot;div&quot;,{'class':'article__list clearfix'})
+</code></pre>
+
+<pre><code>&gt;&gt;Mendapatkan judul dan alamat web dari isi artikel
+</code></pre>
+
+<p><img alt="" src="C:\Users\Khusnul\Documents\nambang\4.0.jpg" /></p>
+<p>Setelah tag html list berita telah diperoleh, selanjutnya adalah mencari tag html yang memuat judul dan link dari judul tersebut. Hal ini dilakukan agar menelusuri isi dari setiap list berita yang terdapat pada halaman tersebut. Biasanya tag html yang memuat link terdapat attribut <code>href</code>.</p>
+<p>Dari list berita tersebut, jika ditelusuri lebih mendalam tag html yang memuat link berita memiliki <em>class</em> <code>ellipsis2</code>.</p>
+<pre><code class="python">for idx,news in enumerate(news_links):
+        news_dict = {}
+        title_news= news.find('a',{'class':''}).get('title')
+        url_news = news.find('a',{'class':''}).get('href')
+</code></pre>
+
+<p>Dilakukan perulangan untuk membaca semua link yang terdapat pada list berita.</p>
+<pre><code>&gt;&gt;Membuat requests pada setiap berita
+</code></pre>
+
+<pre><code class="python">req_news =  requests.get(url_news)
+soup_news = BeautifulSoup(req_news.text, &quot;lxml&quot;)
+</code></pre>
+
+<p>Setelah mendapatkan link setiap berita, sama seperti langkah sebelumnya hal yang dilakukan adalah melakukan <code>requests</code> pada setiap berita.</p>
+<pre><code>&gt;&gt; Mendapatkan isi artikel pada berita
+</code></pre>
+
+<p><img alt="" src="C:\Users\Khusnul\Documents\nambang\4.4.jpg" /></p>
+<p>Sama seperti langkah sebelumnya, yang harus dilakukan selanjutnya adalah melakukan <em>Inspect</em>pada salah satu berita kemudiah mancari tag html yang mengandung isi dari berita tersebut.</p>
+<pre><code class="python">news_content = soup_news.find(&quot;div&quot;,{'class':'read'})
+p = news_content.find_all('p')
+content = ' '.join(item .text for item in p)
+news_content = content.encode('utf8','replace')
+</code></pre>
+
+<p>Setelah mendapatkan isi dari suatu berita yang terdapat pada tag <code>p</code> selanjutnya menggabungkan isi semua tag tersbut menjadi sebuah string.</p>
+<pre><code>Note : program diatas tidak dapat digunakan pada halaman web yang lain. Alasannya karena setiap web memiliki tag html yang berbeda. Jadi jika ingin melakukan crawling pada halaman web yang lain, teman-teman harus menyesuaikan dengan tag htmlnya dengan melakukan inspect yang telah dicontohkan diatas.
+
+</code></pre>
+
+<h4 id="menyimpan-data-dalam-bentuk-excel">Menyimpan data dalam bentuk excel</h4>
+<pre><code class="python">book = openpyxl.load_workbook('crawling.xlsx')
+sheet = book['Data']
+row_count = sheet.max_row
+data = []
+for i in range(row_count):
+    data.append(sheet.cell(row=i+1, column=4).value)
+
+</code></pre>
+
+<p>Libary yang digunakan untuk mengolah data menggunakan excel adalah <code>openpyxl</code>. Library ini sangat mudah untuk mengakses data pada excel, setelah melakukan inisialisasi <code>woorkbook = create_excel()</code> dan mengakses sheet yang akan digunakan <code>sheet1 = woorkbook['crawl_data']</code>, data dapat disimpan berdasarkan baris dan kolom pada excel <code>sheet1.cell(row=i+1, column=4).value</code>. Setelah semua baris dan kolom sudah diberikan nilai maka selanjutnya adalah menyimpan file excel dengan <code>woorkbook.save('crawling.xlsx')</code>.</p>
+<h4 id="cara-akses">Cara akses</h4>
+<pre><code class="python">woorkbook.save('crawling.xlsx')
+url = 'http://indeks.kompas.com/news/2017-08-04/'
+crawl  = crawl_kompas(url)
+
+</code></pre>
+
+<p>List akan disimpan dengan nama <code>crawl</code> di directory <code>data_log</code> sedangkan file excel akan disimpan di directory <code>excel_log</code>. Sehingga sebelum code dijalankan, buatlah kedua folder tersebut terlebih dahulu pada directory yang sama dengan file <code>.py</code></p>
+<pre><code>Notes : dalam beberapa kasus akan muncul pesan error lxml saat code dijalankan, jika demikian yang harus dilakukan adalah menginstall library lxml.
+
+</code></pre>
+
+<h4 id="hasil">Hasil</h4>
+<p><img alt="" src="C:\Users\Khusnul\Documents\nambang\5.0.jpg" /> </p>
+<p>Jika teman-teman membutuhkan contoh serupa dengan studi kasus yang berbeda, silahkan <a href="https://medium.com/@adamaulia/python-simple-crawling-using-beautifulsoup-8247657c2de5">baca</a></p>
+<h2 id="step-3-preprocessing">Step 3. Preprocessing</h2>
+<h3 id="apa-itu-text-preprocessing">Apa itu <em>Text Preprocessing</em> ?</h3>
+<p>Berdasarkan ketidak teraturan struktur data teks, maka proses sistem temu kembali informasi ataupun text mining memerlukan beberapa tahap awal yang pada intinya adalah mempersiapkan agar teks dapat diubah menjadi lebih terstruktur. Salah satu implementasi dari text mining adalah tahap Text Preprocessing.</p>
+<p>Tahap Text Preprocessing adalah tahapan dimana aplikasi melakukan seleksi data yang akan diproses pada setiap dokumen. Proses preprocessing ini meliputi (1) case folding, (2) tokenizing, (3) filtering, dan (4) stemming.</p>
+<h3 id="apa-yang-akan-dilakukan_1">Apa yang akan dilakukan ?</h3>
+<h4 id="install-library-yang-digunakan_1">Install library yang digunakan</h4>
+<pre><code class="python">import openpyxl
+import re
+from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
+from Sastrawi.StopWordRemover.StopWordRemoverFactory import StopWordRemoverFactory
+import pandas as pd
+import numpy as np
+
+</code></pre>
+
+<p>Library yang digunakan pada text preprocessing ialah<code>re</code> digunakan untuk <em>symbol removing</em>, <code>nltk</code> digunakan untuk tokenizing dan stopword, <code>Sastrawi</code> digunakan untuk stemming.</p>
+<h4 id="symbol-removing">Symbol Removing</h4>
+<pre><code class="python">data2 = []
+for i in range(len(data)):
+    data2.append(re.sub(r'[^\w]',' ',str(data[i])))
+
+</code></pre>
+
+<h4 id="tokenizing">Tokenizing</h4>
+<pre><code class="python">data5 = []
+woorkbook = openpyxl.Workbook()
+woorkbook.create_sheet('Data')
+sheet = woorkbook['Data']
+for i in range(len(data4)):
+    token = data4[i].split()
+    data5.append(token)
+    sheet.cell(row=i+1, column=1).value = i+1
+    for j in range(len(token)):
+        sheet.cell(row=i+1, column=2+j).value = token[j]
+woorkbook.save('tokenisasi.xlsx')
+
+</code></pre>
+
+<p>Dokumen teks terdiri dari sekumpulan kalimat, proses tokenisasi memecah dokumen tersebut menjadi bagian-bagian kata yang disebut token. Contohnya kalimat "saya menyapu halaman di depan rumah" setelah ditokenisasi menjadi sebuah list <code>["saya", "menyapu", "halaman", "di", "depan", "rumah"]</code>.</p>
+<h4 id="stopword">Stopword</h4>
+<pre><code class="python">data3 = []
+factory = StopWordRemoverFactory()
+stopword = factory.create_stop_word_remover()
+woorkbook = openpyxl.Workbook()
+woorkbook.create_sheet('Data')
+sheet = woorkbook['Data']
+for i in range(len(data)):
+    stop = stopword.remove(data2[i])
+    data3.append(stop)
+    sheet.cell(row=i+1, column=1).value = i+1
+    sheet.cell(row=i+1, column=2).value = stop
+woorkbook.save('stopwords.xlsx')
+
+
+</code></pre>
+
+<p>Selanjutnya ialah mengambil kata-kata yang dianggap penting dari hasil tokenization atau membuang kata-kata yang dianggap tidak terlalu mempunyai arti penting dalam proses text mining. Contohnya data <code>["saya", "menyapu", "halaman", "di", "depan", "rumah"]</code> menjadi <code>["saya", "menyapu", "halaman", "depan", "rumah"]</code>.</p>
+<h4 id="stemming">Stemming</h4>
+<pre><code class="python">data4 = []
+factory = StemmerFactory()
+stemmer = factory.create_stemmer()
+woorkbook = openpyxl.Workbook()
+woorkbook.create_sheet('Data')
+sheet = woorkbook['Data']
+for i in range(len(data)):
+    katadasar = stemmer.stem(data3[i])
+    data4.append(katadasar)
+    sheet.cell(row=i+1, column=1).value = i+1
+    sheet.cell(row=i+1, column=2).value = katadasar
+woorkbook.save('stemming.xlsx')
+
+
+</code></pre>
+
+<p>Stemming bertujuan untuk mentransformasikan kata menjadi kata dasarnya (root word) dengan menghilangkan semua imbuhan kata. Contohnya data <code>["saya", "sapu", "halaman", "depan", "rumah"]</code> menjadi <code>["saya", "sapu", "halaman", "depan", "rumah"]</code>.</p>
+<h4 id="cara-akses_1">Cara akses</h4>
+<p>Sebelum melakukan proses diatas, terlebih dahulu membaca data hasil crawling yang telah disimpan dalam bentuk list dengan cara dibawah ini.</p>
+<pre><code class="python">def load_list(name):
+    with open(&quot;data_logs/&quot;+name+&quot;.txt&quot;, &quot;rb&quot;) as fp:   # Unpickling
+        b = pickle.load(fp)
+    print(&quot;Success to load.....&quot;)
+    return b
+
+</code></pre>
+
+<p>Selanjutnya, pergunakan semua function pada step ini secara bersama.</p>
+<pre><code class="python">print(&quot;Load data......&quot;)
+data = load_list(&quot;data&quot;)
+
+print(&quot;Lowercase......&quot;)
+lowercase = lowercase(data)
+
+print(&quot;Remove symbol......&quot;)
+symbol_remover = symbol_remover(lowercase)
+
+print(&quot;Tokenisasi......&quot;)
+tokenisasi = tokenisasi(symbol_remover)
+
+print(&quot;Stopword......&quot;)
+stopword_s = stopword_s(tokenisasi)
+
+print(&quot;Stemming......&quot;)
+stemming = stemming(stopword_s)
+
+</code></pre>
+
+<pre><code>Pada hasil akhir dari tutorial ini, kita akan membandingkan uni-gram dan bi-gram. Uni-gram yakni hasil token merupakan tiap satu suku kata, sedangkan bi-gram hasil token menjadi 2 kata. Contoh bi-gram [&quot;saya sapu&quot;, &quot;sapu halaman&quot;, &quot;halaman depan&quot;, &quot;depan rumah&quot;].
+
+</code></pre>
+
+<p>Jika teman-teman membutuhkan contoh serupa dengan studi kasus yang berbeda, silahkan baca<a href="https://devtrik.com/python/text-preprocessing-dengan-python-nltk/">disini</a></p>
+<h2 id="step-4-fiture-selection">Step 4. Fiture Selection</h2>
+<h3 id="apa-itu-fiture-selection">Apa itu <em>Fiture Selection</em> ?</h3>
+<p>Pemilihan istilah untuk dijadikan indeks merupakan isu yang penting dalam sistem temu-kembali informasi. Selanjunya proses pemilihan istilah ini disebut dengan seleksi fitur (feature selection).</p>
+<h3 id="mengapa-fiture-selection-penting">Mengapa <em>Fiture Selection</em> penting ?</h3>
+<p>Fitur seleksi dapat menyebabkan berkurangnya ukuran indeks sehingga proses retrieval suatu dokumen menjadi lebih cepat sebab jumlah indeks yang dicari menjadi lebih sedikit. Tugas utama seleksi fitur adalah menentukan istilah-istilah yang layak dijadikan term index atau dengan kata lain membuang (menghilangkan) istilah-istilah yang tidak mungkin dijadikan indeks.</p>
+<h3 id="apa-itu-drop-high-correlation">Apa itu <em>Drop High Correlation</em> ?</h3>
+<p>Korelasi adalah istilah statistik yang dalam penggunaan umum mengacu pada seberapa dekat dua variabel untuk memiliki hubungan linier satu sama lain. Fitur dengan korelasi tinggi lebih linear dan karenanya memiliki efek yang hampir sama pada variabel dependen. Jadi, ketika dua fitur memiliki korelasi tinggi, kita dapat menjatuhkan (<em>drop</em>) salah satu dari dua fitur tersebut.</p>
+<p>Penghapusan fitur yang berbeda dari dataset akan memiliki efek yang berbeda pada nilai p untuk dataset. Kami dapat menghapus fitur yang berbeda dan mengukur nilai p di setiap kasus. Nilai-p yang diukur ini dapat digunakan untuk memutuskan apakah akan mempertahankan fitur atau tidak.</p>
+<p>Untuk informasi lebih lanjut mengenai perhitungan matrik korelasi bisa teman-teman baca <a href="https://tyangluhtu.wordpress.com/2013/04/11/masih-ingat-dengan-korelasi/">disini</a></p>
+<h3 id="apa-yang-akan-dilakukan_2">Apa yang akan dilakukan ?</h3>
+<h4 id="install-library-yang-digunakan_2">Install library yang digunakan</h4>
+<pre><code class="python">import pandas as pd
+import numpy as np
+
+</code></pre>
+
+<p>Library yang digunakan pada seleksi fitur ialah<code>pandas</code> digunakan untuk membuat data menjadi data frame dan <code>numpy</code> digunakan untuk menjadikan data menjadi <em>matrix</em> dan mengolahnya.</p>
+<h4 id="proses-fiture-selection">Proses <em>Fiture Selection</em></h4>
+<pre><code>&gt;&gt; Mengubah data menjadi dataframe
+
+</code></pre>
+
+<p>Data yang berbentuk <code>array</code> dirubah menjadi <code>dataframe</code>, yakni struktur data tabel dua dimensi yang memiliki label. Hal ini akan memudahkan dalam operasi baris dan kolom.</p>
+<pre><code class="python">df = pd.DataFrame(X)
+
+</code></pre>
+
+<pre><code>&gt;&gt; Membuat korelasi matriks
+
+</code></pre>
+
+<p><img alt="" src="C:\Users\Khusnul\Documents\nambang\8.JPG" /></p>
+<p>Dari matriks korelasi ini dapat dilihat bahwa pada bagian diagonal, nilainya pasti = 1 sebab variabel tersebut berkorelasi sempurna positif dengan dirinya sendiri. Nilai korelasi antara pasangan variabel pada set data1 dan data2, menunjukkan nilai dalam range -1 dan 1. Ini disebabkan oleh standarisasi menggunakan standar deviasi sebagai pembagi pada saat perhitungan hasil korelasinya.</p>
+<pre><code class="python">corr_matrix = df.corr().abs()
+
+</code></pre>
+
+<pre><code>&gt;&gt; Menentukan fitur yang akan dihapus
+
+</code></pre>
+
+<p>Setelah mendapatkan matrik kolerasi, selanjutnya menentukan kolom yang memiliki nilai lebih dari <code>0.95</code>. Nilai ini fleksibel, bergantung pada batas nilai fitur yang dianggap penting.</p>
+<pre><code class="python">to_drop = [column for column in upper.columns if any(upper[column] &gt; 0.95)]
+
+</code></pre>
+
+<pre><code>&gt;&gt; Menghapus fitur
+
+</code></pre>
+
+<p>Proses selanjutnya ialah menghapus fitur yang dianggap tidak penting berdasarkan nilai batas yang ditentukan pada proses sebelumnya.</p>
+<pre><code class="python">new_data = df.drop(df.columns[to_drop], axis=1)
+
+</code></pre>
+
+<h4 id="full-code">Full Code</h4>
+<pre><code class="python">import openpyxl
+import re
+from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
+from Sastrawi.StopWordRemover.StopWordRemoverFactory import StopWordRemoverFactory
+
+#n-gram
+def generate_ngrams(data,n):
+    n_gram = []
+    for i in range(0,len(data)):
+        tokens = data[i]
+        ngrams = zip(*[tokens[i:] for i in range(n)])
+        n_gram.append([&quot; &quot;.join(ngram) for ngram in ngrams])
+    return n_gram
+
+#read data from excel
+book = openpyxl.load_workbook('crawling.xlsx')
+sheet = book['Data']
+row_count = sheet.max_row
+data = []
+for i in range(row_count):
+    data.append(sheet.cell(row=i+1, column=4).value)
+
+#symbol remove
+data2 = []
+for i in range(len(data)):
+    data2.append(re.sub(r'[^\w]',' ',str(data[i])))
+
+#stopword kata sambung
+data3 = []
+factory = StopWordRemoverFactory()
+stopword = factory.create_stop_word_remover()
+#create excel
+woorkbook = openpyxl.Workbook()
+woorkbook.create_sheet('Data')
+sheet = woorkbook['Data']
+for i in range(len(data)):
+    stop = stopword.remove(data2[i])
+    data3.append(stop)
+    sheet.cell(row=i+1, column=1).value = i+1
+    sheet.cell(row=i+1, column=2).value = stop
+woorkbook.save('stopwords.xlsx')
+
+#stemming kata imbuan
+data4 = []
+factory = StemmerFactory()
+stemmer = factory.create_stemmer()
+#create excel
+woorkbook = openpyxl.Workbook()
+woorkbook.create_sheet('Data')
+sheet = woorkbook['Data']
+for i in range(len(data)):
+    katadasar = stemmer.stem(data3[i])
+    data4.append(katadasar)
+    sheet.cell(row=i+1, column=1).value = i+1
+    sheet.cell(row=i+1, column=2).value = katadasar
+woorkbook.save('stemming.xlsx')
+
+#tokenisasi kata pemisah
+data5 = []
+#create excel
+woorkbook = openpyxl.Workbook()
+woorkbook.create_sheet('Data')
+sheet = woorkbook['Data']
+for i in range(len(data4)):
+    token = data4[i].split()
+    data5.append(token)
+    sheet.cell(row=i+1, column=1).value = i+1
+    for j in range(len(token)):
+        sheet.cell(row=i+1, column=2+j).value = token[j]
+woorkbook.save('tokenisasi.xlsx')
+
+#n-gram
+data6 = generate_ngrams(data5,2)
+print(len(data5))
+#create excel
+woorkbook = openpyxl.Workbook()
+woorkbook.create_sheet('Data')
+sheet = woorkbook['Data']
+for i in range(0,len(data6)):
+    sheet.cell(row=i+1, column=1).value = i+1
+    for j in range(0,len(data6[i])):
+        sheet.cell(row=i+1, column=2+j).value = data6[i][j]
+        print(data6[i][j])
+
+woorkbook.save('n_gram.xlsx')
+
+#VSM mencari data yang sama
+term = []
+#create excel
+woorkbook = openpyxl.Workbook()
+woorkbook.create_sheet('Data')
+sheet = woorkbook['Data']
+j=2
+for i in range(len(data5)):
+    for word in data5[i]:
+        if word not in term :
+            term.append(word)
+            sheet.cell(row=1, column=j).value = word
+            j+=1   
+#count word in document
+for i in range(len(data5)):
+    sheet.cell(row=2+i, column=1).value = i+1
+    j = 2
+    for word in term :
+        sheet.cell(row=2+i, column=j).value = data5[i].count(word)
+        j+=1
+woorkbook.save('VSM.xlsx')
+
+
+</code></pre>
+
+<h4 id="cara-akses_2">Cara akses</h4>
+<p><code>collecting_fiture</code> merupakan label dari setiap kolom atau list yang terdiri dari semua kata yang terdapat pada semua berita dimana tidak ada kata yang sama pada list. Panjang <code>collecting_fiture</code> sama dengan panjang kolom <code>vsm</code>.</p>
+<p><img alt="" src="C:\Users\Khusnul\Documents\nambang\9.JPG" /></p>
+<p>Sedangkan <code>vsm</code> adalah banyaknya kemunculan kata yang ada di <code>collecting_fiture</code> pada setiap berita. Sehingga diperoleh matrik 2-dimensi.</p>
+<pre><code class="python">term = []
+data7 = []
+fitur = []
+woorkbook = openpyxl.Workbook()
+woorkbook.create_sheet('Data')
+sheet = woorkbook['Data']
+j=2
+for i in range(len(data5)):
+    for word in data5[i]:
+        if word not in term :
+            term.append(word)
+            sheet.cell(row=1, column=j).value = word
+            fitur.append(word)
+            j+=1   
+for i in range(len(data5)):
+    sheet.cell(row=2+i, column=1).value = i+1
+    j = 2
+    tamporary = []
+    for word in term :
+        sheet.cell(row=2+i, column=j).value = data5[i].count(word)
+        tamporary.append(data5[i].count(word))
+        j+=1
+    data7.append(tamporary)
+woorkbook.save('VSM.xlsx')
+
+</code></pre>
+
+<p><img alt="" src="C:\Users\Khusnul\Documents\nambang\6.1.png" /></p>
+<p>Sehingga <code>vsm</code> dan <code>collecting_fiture</code> digunakan sebagai input <code>drop_highly_correlation</code>.</p>
+<pre><code class="python">#Uni Gram
+vsm =  load_list(&quot;vsm&quot;)
+collecting_fiture =  load_list(&quot;collecting_fiture&quot;)
+new_vsm,new_collecting_fiture = drop_highly_correlation(vsm,collecting_fiture)
+
+#Bi Gram
+vsm_n_gram =  load_list(&quot;vsm_2&quot;)
+collecting_fiture_n_gram =  load_list(&quot;collecting_fiture_2&quot;)
+new_vsm_n_gram,new_collecting_fiture_n_gram = drop_highly_correlation(vsm_n_gram,collecting_fiture_n_gram)
+
+</code></pre>
+
+<h4 id="hasil_1">hasil</h4>
+<p>Hasil dari seleksi fitur ini adalah jumlah fitur atau atribut atau kolom pada data, baik uni-gram dan bi-gram akan berkurang.</p>
+<p>Jika teman-teman membutuhkan contoh serupa dengan studi kasus yang berbeda, silahkan baca <a href="https://chrisalbon.com/machine_learning/feature_selection/drop_highly_correlated_features/">disini</a></p>
+<h2 id="step-5-tf-idf">Step 5. TF-IDF</h2>
+<h3 id="apa-itu-tf-idf">Apa itu TF-IDF ?</h3>
+<p>Metode TF-IDF merupakan metode untuk menghitung bobot setiap kata yang paling umum digunakan pada information retrieval. Metode ini juga terkenal efisien, mudah dan memiliki hasil yang akurat. Metode ini akan menghitung nilai Term Frequency (TF) dan Inverse Document Frequency (IDF) pada setiap token (kata) di setiap dokumen dalam korpus.</p>
+<h3 id="apa-yang-akan-dilakukan_3">Apa yang akan dilakukan ?</h3>
+<h4 id="install-library-yang-digunakan_3">Install library yang digunakan</h4>
+<pre><code class="python">import math
+
+</code></pre>
+
+<p>Library yang digunakan ialah<code>math</code> yang digunakan untuk melakukan proses perhitungan.</p>
+<h4 id="tf">TF</h4>
+<p>TF (Term Frequency) adalah frekuensi dari kemunculan sebuah term dalam dokumen yang bersangkutan. Semakin besar jumlah kemunculan suatu term (TF tinggi) dalam dokumen, semakin besar pula bobotnya atau akan memberikan nilai kesesuaian yang semakin besar.</p>
+<pre><code class="python">def tf(data,term):
+    new_data=[]
+    for i in range(len(data)):
+        tempt = []
+        for word in term:
+            tempt.append(data[i].count(word))
+        new_data.append(tempt)
+    return new_data
+
+</code></pre>
+
+<h4 id="idf">IDF</h4>
+<p>IDF (Inverse Document Frequency) merupakan sebuah perhitungan dari bagaimana term didistribusikan secara luas pada koleksi dokumen yang bersangkutan. IDF menunjukkan hubungan ketersediaan sebuah term dalam seluruh dokumen. Semakin sedikit jumlah dokumen yang mengandung term yang dimaksud, maka nilai IDF semakin besar.</p>
+<pre><code class="python">def idf(data):
+    new_data = []
+    for i in range(len(data[0])):
+        count = 0
+        for j in range(len(data)):
+            count+= int(data[j][i])
+        new_data.append(math.log10(len(data)/count))
+    return new_data
+
+</code></pre>
+
+<h4 id="tf-idf">TF-IDF</h4>
+<pre><code class="python">def tf_idf(tf,idf):
+    new_data = []
+    for i in range(len(tf)):
+        tempt = []
+        for j in range(len(tf[i])):
+            tempt.append(int(tf[i][j])*int(idf[j]))
+        new_data.append(tempt)
+    return new_data
+
+</code></pre>
+
+<h4 id="cara-akses_3">Cara akses</h4>
+<pre><code class="python">#Uni Gram
+
+stemming = load_list(&quot;stemming&quot;)
+collecting_fiture = load_list(&quot;new_collecting_fiture&quot;)
+
+print(&quot;Load Tf....&quot;)
+tf_a = tf(stemming,collecting_fiture)
+
+print(&quot;Load idf...&quot;)
+idf_a = idf(tf_a)
+
+print(&quot;Load tf_idf...&quot;)
+tf_idf_a = tf_idf(tf_a,idf_a,collecting_fiture)
+
+#Bi Gram
+
+n_gram = load_list(&quot;token_2&quot;)
+collecting_fiture_n_gram = load_list(&quot;new_collecting_fiture_2&quot;)
+
+print(&quot;Load Tf_n_gram....&quot;)
+tf_n_gram = tf(n_gram,collecting_fiture_n_gram)
+
+print(&quot;Load idf_n_gram...&quot;)
+idf_n_gram = idf(tf_n_gram)
+
+print(&quot;Load tf_idf_n_gram...&quot;)
+tf_idf_n_gram = tf_idf(tf_n_gram,idf_n_gram,collecting_fiture_n_gram)
+
+</code></pre>
+
+<p>Jika teman-teman membutuhkan contoh serupa dengan studi kasus yang berbeda, silahkan baca<a href="https://temukembaliinformasi.wordpress.com/2009/08/26/pembobotan-tf-idf/">disini</a></p>
+<h2 id="step-6-clustering">Step 6. Clustering</h2>
+<h3 id="apa-itu-clustering">Apa itu <em>Clustering</em> ?</h3>
+<p>Clustering adalah metode penganalisaan data, yang sering dimasukkan sebagai salah satu metode <em>Data Mining</em>, yang tujuannya adalah untuk mengelompokkan data dengan karakteristik yang sama ke suatu ‘wilayah’ yang sama dan data dengan karakteristik yang berbeda ke ‘wilayah’ yang lain.</p>
+<h3 id="apa-itu-fuzzy-c-means">Apa itu <em>Fuzzy C-Means</em> ?</h3>
+<p>Fuzzy C-Means menerapkan pengelompokan fuzzy, dimana setiap data dapat menjadi anggota dari beberapa cluster dengan derajat keanggotaan yang berbeda-beda pada setiap cluster. Fuzzy C-Means merupakan algoritma iteratif, yang menerapkan iterasi pada proses clustering data. Tujuan dari Fuzzy C-Means adalah untuk mendapatkan pusat cluster yang nantinya akan digunakan untuk mengetahui data yang masuk ke dalam sebuah cluster.</p>
+<p>Untuk informasi lebih lanjut mengenai perhitungan <em>Fuzzy C-Means</em>, silahkan baca <a href="http://mtkmudahbanar.blogspot.com/2016/08/metode-clustering-k-means-dan-fuzzy-c.html">disini</a></p>
+<h3 id="apa-itu-silhouette-coefficient">Apa itu <em>Silhouette Coefficient</em> ?</h3>
+<p><em>ilhouette coefficient</em> berfungsi untuk menguji kualitas dari cluster yang dihasilkan. Metode ini merupakan metode validasi cluster yang menggabungkan metode <em>cohesion</em> dan <em>Separation</em>. Hasil perhitungan nilai <em>silhoutte coeffisien</em> dapat bervariasi antara -1 hingga 1. Hasil clustering dikatakan baik jikai nilai silhoutte coeffisien bernilai positif, sehingga akan menghasilkan nilai silhoutte coeffisien yang maksimum yaitu 1.</p>
+<p>Maka dapat dikatakan, jika s<em>i</em> = 1 berarti objek <em>i</em> sudah berada dalam cluster yang tepat. Jika nilai s<em>i</em> = 0 maka objek <em>i</em> berada di antara dua cluster sehingga objek tersebut tidak jelas harus dimasukan ke dalam cluster A atau cluster B. Akan tetapi, jika s<em>i</em> = -1 artinya struktur cluster yang dihasilkan overlapping, sehingga objek <em>i</em> lebih tepat dimasukan ke dalam cluster yang lain.</p>
+<p>Untuk informasi lebih lanjut mengenai perhitungan <em>silhoutte coeffisien</em>, silahkan baca  <a href="https://lookmylife.wordpress.com/2011/10/03/metode-silhoutte-coeffisien/">disini</a></p>
+<h3 id="apa-yang-akan-dilakukan_4">Apa yang akan dilakukan ?</h3>
+<h4 id="install-library-yang-digunakan_4">Install library yang digunakan</h4>
+<pre><code class="python">import numpy as np
+from sklearn.metrics import silhouette_score
+import skfuzzy as fuzz
+
+</code></pre>
+
+<p>Library yang digunakan ialah <code>numpy</code> yang digunakan untuk melakukan proses perhitungan,<code>sklearn</code> yang digunakan untuk menghitung nilai <em>silhouette</em> dan <code>skfuzzy</code> yang digunakan untuk melakukan proses perhitungan <em>fuzzy c-means</em>.</p>
+<h4 id="fuzzy-c-means">Fuzzy C-means</h4>
+<pre><code class="python">cntr, u, u0, distant, fObj, iterasi, fpc =  fuzz.cmeans(np.asarray(data).T, i, 2, 0.00001, 1000, seed=0)
+
+</code></pre>
+
+<p>Untuk menghitung <em>fuzzy c-means</em> telah disediakan oleh library python, adapun inputnya yakni :</p>
+<ol>
+<li>data berupa array 2d merupakan data yang akan dikelompokkan.</li>
+<li>jumlah cluster atau kelas yang diinginkan.</li>
+<li>array eksponensial</li>
+<li>batas error</li>
+<li>jumlah maksimum iterasi</li>
+</ol>
+<p>Sedangkan outputnya berupa :</p>
+<ol>
+<li>cntr merupakan pusat cluster</li>
+<li>u merupakan matriks partisi-c fuzzy akhir</li>
+<li>u0 merupakan tebakan awal pada fuzzy c-partisied matrix</li>
+<li>distant merupakan matriks jarak euclidian</li>
+<li>fObj menrupakan riwayat fungsi obyektif</li>
+<li>iterasi merupakan jumlah iterasi yang dijalankan</li>
+<li>fpc: merupakan koefisien partisi fuzzy akhir.</li>
+</ol>
+<p>Yang akan digunakan pada tutorial ini adalah u</p>
+<h4 id="silhouette-coefficient">Silhouette Coefficient</h4>
+<pre><code class="python">silhouette_score(data, membership, random_state=10)
+
+</code></pre>
+
+<p>Setelah setiap data telah di <em>cluster</em>, selanjutnya adalah menghitung <em>silhouette score</em>. <em>Silhouette score</em> dihitung pada setiap cluster, baik itu untuk <em>uni-gram</em> maupun <em>bi-gram</em>.</p>
+<h4 id="full-code_1">Full Code</h4>
+<pre><code class="python">def clustering(data):
+    s_avg = []
+    for i in range(2,len(data)):
+        cntr, u, u0, distant, fObj, iterasi, fpc =  fuzz.cmeans(np.asarray(data).T, i, 2, 0.00001, 1000, seed=0)
+        membership = np.argmax(u, axis=0)
+
+        s_avg.append(silhouette_score(data, membership, random_state=10))
+    return s_avg
+
+</code></pre>
+
+<h4 id="cara-akses_4">Cara akses</h4>
+<pre><code class="python">#Uni Gram
+tfidf = load_list(&quot;tf_idf&quot;)
+s_avg = clustering(tfidf)
+
+#Bi Gram
+tfidf = load_list(&quot;tf_idf_2&quot;)
+s_avg = clustering(tfidf)
+
+</code></pre>
+
+<h4 id="hasil_2">Hasil</h4>
+<p>Setelah diperoleh <em>silhouette score</em> untuk masing-masing <em>cluster</em> pada uni-gram dan bi-gram dengan menggunakan perintah dibawah :</p>
+<pre><code class="python">#Uni Gram
+s_avg =  func.load_list(&quot;s_avg&quot;)
+print(s_avg.index(max(s_avg))+2)
+
+#Bi Gram
+s_avg =  func.load_list(&quot;s_avg_2&quot;)
+print(s_avg.index(max(s_avg))+2)
+
+</code></pre>
+
+<p>Diperoleh bahwa <em>cluster</em> yang memiliki <em>silhouette score</em> paling tinggi adalah 2.</p>
+<h1 id="conclusion">Conclusion</h1>
+<p>Hasil yang diperoleh pada percobaan di atas mungkin bisa dikatakan tidak terlalu memiliki hasil yang baik, dan mungkin <em>code line</em> yang ada masih terlalu panjang. Meski tutorial ini masih banyak kekurangan, semoga dapat memberikan manfaat untuk teman-teman semua. Jika ada masukan atau perbaikan yang memberikan hasil yang lebih baik atau yang memiliki <em>code program</em> yang lebih pendek, jangan sungkan untuk memberikan saran kalian melalui email.</p>
+<p><em>Full Code</em> bisa di download</p>
+<h2 id="references">References</h2>
+<p>(http://mtkmudahbanar.blogspot.com/2016/08/metode-clustering-k-means-dan-fuzzy-c.html)</p>
+<p>(https://lookmylife.wordpress.com/2011/10/03/metode-silhoutte-coeffisien/)</p>
+<p>https://www.gurupendidikan.co.id/pengertian-data-menurut-para-ahli-serta-jenis-fungsi-dan-contoh/</p>
+<p>https://www.jogjawebseo.com/pengertian-apa-itu-web-crawler/</p>
+<p>https://wahyudisetiawan.wordpress.com/tag/seleksi-fitur/</p>
+<p>https://realpython.com/installing-python/</p>
+<p>https://medium.com/@adamaulia/python-simple-crawling-using-beautifulsoup-8247657c2de5</p>
+<p>https://agustiyadi.wordpress.com/2013/10/21/pentingnya-sebuah-data/</p>
+<p>https://informatikalogi.com/text-preprocessing/</p>
+<p>https://informatikalogi.com/term-weighting-tf-idf/</p>
+<p>https://yudiagusta.wordpress.com/clustering/</p>
+<p>https://datatofish.com/install-package-python-using-pip/</p>
+<p>https://temukembaliinformasi.wordpress.com/2009/08/26/pembobotan-tf-idf/</p>
+<p>https://arfianhidayat.com/algoritma-tf-idf</p>
+<p>https://devtrik.com/python/text-preprocessing-dengan-python-nltk/</p>
+<p>https://chrisalbon.com/machine_learning/feature_selection/drop_highly_correlated_features/</p>
+<p>https://towardsdatascience.com/feature-selection-correlation-and-p-value-da8921bfb3cf)</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="assets/javascripts/application.39abc4af.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"."}})</script>
+      
+    
+  </body>
+</html>
